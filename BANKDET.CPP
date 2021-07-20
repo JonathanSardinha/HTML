@@ -1,0 +1,66 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+#include<string.h>
+class bank
+{
+int accno;
+char nm[100],acctype[100];
+float bal;
+public:
+bank(int acc_no,char*name,char* acc_type,float balance)
+{
+accno=acc_no;
+strcpy(nm,name);
+strcpy(acctype,acc_type);
+bal=balance;
+}
+void deposit();
+void withdraw();
+void display();
+};
+void bank::deposit()
+{
+int damt1;
+cout<<"\nEnter Deposit Amount=";
+cin>>damt1;
+bal+=damt1;
+}
+void bank::withdraw()
+{
+int wamt1;
+cout<<"\nEnter Withdraw Amount=";
+cin>>wamt1;
+if(wamt1>bal)
+cout<<"\nCannot Withdraw Amount";
+bal-=wamt1;
+}
+void bank::display()
+{
+cout<<"\n     ";
+cout<<"\nAccount No. :"<<accno;
+cout<<"\nName :"<<nm;
+cout<<"\nAccount Type :"<<acctype;
+cout<<"\nBalance:"<<bal;
+}
+int main()
+{
+int acc_no;
+char name[100],acc_type[100];
+float balance;
+cout<<"\nEnter Details: \n";
+cout<<"        ";
+cout<<"\nAccount No. ";
+cin>>acc_no;
+cout<<"\nName :";
+cin>>name;
+cout<<"\nAccount Type :";
+cin>>acc_type;
+cout<<"\nBalance :";
+cin>>balance;
+bank b1(acc_no,name,acc_type,balance);
+b1.deposit();
+b1.withdraw();
+b1.display();
+return 0;
+}
